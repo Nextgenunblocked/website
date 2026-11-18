@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#102a43">
+
+  <title>Mobile Welding Job Request</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-icon" aria-hidden="true">⚡</div>
+
+    <div>
+      <p class="eyebrow">MOBILE WELDING &amp; REPAIR</p>
+      <h1>Tell us about your job</h1>
+
+      <p>
+        Clear details and photos help us estimate the work and
+        schedule the right amount of time.
+      </p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="stepLabel">Step 1 of 6</span>
+        <span id="percentLabel">0%</span>
+      </div>
+
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
+    </div>
+
+    <form id="jobForm" novalidate>
+
+      <!-- STEP 1: CUSTOMER AND LOCATION -->
+      <section class="step active" data-step="1">
+        <div class="section-heading">
+          <span class="step-number">1</span>
+
+          <div>
+            <h2>Contact and location</h2>
+            <p>How can we reach you, and where is the work?</p>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <label>
+            Full name <strong>*</strong>
+
+            <input
+              type="text"
+              name="fullName"
+              autocomplete="name"
+              required
+            >
+          </label>
+
+          <label>
+            Phone number <strong>*</strong>
+
+            <input
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+            >
+          </label>
+
+          <label>
+            Email
+
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              inputmode="email"
+            >
+          </label>
+
+          <label>
+            Preferred contact method
+
+            <select name="contactMethod">
+              <option value="Text message">Text message</option>
+              <option value="Phone call">Phone call</option>
+              <option value="Email">Email</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Job address <strong>*</strong>
+
+          <input
+            type="text"
+            name="address"
+            autocomplete="street-address"
+            required
+          >
+        </label>
+
+        <div class="grid two">
+          <label>
+            City <strong>*</strong>
+
+            <input
+              type="text"
+              name="city"
+              value="Oregon City"
+              autocomplete="address-level2"
+              required
+            >
+          </label>
+
+          <label>
+            ZIP code <strong>*</strong>
+
+            <input
+              type="text"
+              name="zip"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              pattern="[0-9]{5}(-[0-9]{4})?"
+              placeholder="97045"
+              required
+            >
+          </label>
+        </div>
+      </section>
+
+      <!-- STEP 2: REPAIR INFORMATION -->
+      <section class="step" data-step="2" hidden>
+        <div class="section-heading">
+          <span class="step-number">2</span>
+
+          <div>
+            <h2>What needs repair?</h2>
+            <p>Choose the closest match and describe the damage.</p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>
+            Type of item <strong>*</strong>
+          </legend>
+
+          <div class="choice-grid">
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Trailer"
+                required
+              >
+
+              <span>
+                <span class="choice-icon">🚚</span>
+                <b>Trailer</b>
+              </span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Gate or fence"
+              >
+
+              <span>
+                <span class="choice-icon">🚧</span>
+                <b>Gate or fence</b>
+              </span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Farm equipment"
+              >
+
+              <span>
+                <span class="choice-icon">🚜</span>
+                <b>Farm equipment</b>
+              </span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Heavy equipment"
+              >
+
+              <span>
+                <span class="choice-icon">🏗️</span>
+                <b>Heavy equipment</b>
+              </span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Railing or stairs"
+              >
+
+              <span>
+                <span class="choice-icon">🪜</span>
+                <b>Railing or stairs</b>
+              </span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="itemType"
+                value="Other"
+              >
+
+              <span>
+                <span class="choice-icon">🔩</span>
+                <b>Other</b>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label>
+          What is damaged? <strong>*</strong>
+
+          <textarea
+            name="damage"
+            rows="4"
+            placeholder="Example: The left ramp hinge cracked away from the trailer frame."
+            required
+          ></textarea>
+        </label>
+
+        <div class="grid two">
+          <label>
+            Material
+
+            <select name="material">
+              <option value="Unknown">Unknown</option>
+              <option value="Mild steel">Mild steel</option>
+              <option value="Stainless steel">Stainless steel</option>
+              <option value="Aluminum">Aluminum</option>
+              <option value="Cast iron">Cast iron</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Has this area been repaired before?
+
+            <select name="previousRepair">
+              <option value="Unknown">Unknown</option>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="switch-row">
+          <input
+            type="checkbox"
+            name="outOfService"
+            value="Yes"
+          >
+
+          <span class="switch"></span>
+
+          <span class="switch-text">
+            <b>Equipment is currently out of service</b>
+
+            <small>
+              Check this if the damage is stopping work or normal use.
+            </small>
+          </span>
+        </label>
+      </section>
+
+      <!-- STEP 3: PHOTOS AND MEASUREMENTS -->
+      <section class="step" data-step="3" hidden>
+        <div class="section-heading">
+          <span class="step-number">3</span>
+
+          <div>
+            <h2>Photos and measurements</h2>
+
+            <p>
+              Good photos reduce follow-up questions and improve scheduling.
+            </p>
+          </div>
+        </div>
+
+        <div class="tip">
+          <b>Recommended photo checklist</b>
+
+          <ul>
+            <li>One wide photo showing the entire item</li>
+            <li>Two or three close-ups from different angles</li>
+            <li>Attachment points and surrounding metal</li>
+            <li>Backside or underside when safely accessible</li>
+            <li>A tape measure beside the damage for scale</li>
+          </ul>
+        </div>
+
+        <label class="upload-box" for="photos">
+          <span class="upload-icon">📷</span>
+          <b>Add job photos</b>
+          <small>Use your camera or select existing pictures</small>
+
+          <input
+            id="photos"
+            name="photos"
+            type="file"
+            accept="image/*"
+            capture="environment"
+            multiple
+          >
+        </label>
+
+        <div
+          id="preview"
+          class="preview-grid"
+          aria-live="polite"
+        ></div>
+
+        <div class="grid two">
+          <label>
+            Approximate damage length
+
+            <input
+              type="text"
+              name="damageLength"
+              placeholder="Example: About 6 inches"
+            >
+          </label>
+
+          <label>
+            Material thickness
+
+            <input
+              type="text"
+              name="thickness"
+              placeholder="Example: 1/4 inch or unknown"
+            >
+          </label>
+
+          <label>
+            Overall item size
+
+            <input
+              type="text"
+              name="overallSize"
+              placeholder="Approximate is fine"
+            >
+          </label>
+
+          <label>
+            Space around the repair
+
+            <input
+              type="text"
+              name="clearance"
+              placeholder="Open, tight, overhead, underneath, etc."
+            >
+          </label>
+        </div>
+      </section>
+
+      <!-- STEP 4: TRUCK ACCESS -->
+      <section class="step" data-step="4" hidden>
+        <div class="section-heading">
+          <span class="step-number">4</span>
+
+          <div>
+            <h2>Truck and worksite access</h2>
+
+            <p>
+              Help us determine whether the welding truck and equipment
+              can reach the repair.
+            </p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>
+            Can a full-size pickup reach and park near the work?
+            <strong>*</strong>
+          </legend>
+
+          <div class="segmented">
+            <label>
+              <input
+                type="radio"
+                name="truckAccess"
+                value="Yes"
+                required
+              >
+              <span>Yes</span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="truckAccess"
+                value="No"
+              >
+              <span>No</span>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="truckAccess"
+                value="Unsure"
+              >
+              <span>Unsure</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label>
+          Estimated distance from the truck to the repair
+
+          <select name="truckDistance">
+            <option value="Within 25 feet">Within 25 feet</option>
+            <option value="25 to 50 feet">25 to 50 feet</option>
+            <option value="50 to 100 feet">50 to 100 feet</option>
+            <option value="More than 100 feet">More than 100 feet</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Access or terrain concerns</legend>
+
+          <div class="check-grid">
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Narrow driveway"
+              >
+              Narrow driveway
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Low branches or wires"
+              >
+              Low branches or wires
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Steep grade"
+              >
+              Steep grade
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Soft ground or mud"
+              >
+              Soft ground or mud
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Sharp turns"
+              >
+              Sharp turns
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Gate or restricted entry"
+              >
+              Gate or restricted entry
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Animals present"
+              >
+              Animals present
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Indoor or enclosed area"
+              >
+              Indoor or enclosed area
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="Four-wheel drive may be needed"
+              >
+              Four-wheel drive may be needed
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="access"
+                value="No room to turn around"
+              >
+              No room to turn around
+            </label>
+          </div>
+        </fieldset>
+
+        <label>
+          Additional access information
+
+          <textarea
+            name="accessNotes"
+            rows="4"
+            placeholder="Example: The truck must stay 75 feet away, and the welding leads must pass through a 4-foot gate."
+          ></textarea>
+        </label>
+      </section>
+
+      <!-- STEP 5: PROCESSES AND PROCEDURES -->
+      <section class="step" data-step="5" hidden>
+        <div class="section-heading">
+          <span class="step-number">5</span>
+
+          <div>
+            <h2>Processes and jobsite rules</h2>
+
+            <p>
+              If you do not know an answer, select the “unsure” option.
+              Final requirements will be verified before work begins.
+            </p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Customer or jobsite-required process</legend>
+
+          <div class="check-grid">
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="No required process or unsure"
+              >
+              No requirement or unsure
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Stick or SMAW"
+              >
+              Stick / SMAW
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="MIG or GMAW"
+              >
+              MIG / GMAW
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Flux-core or FCAW"
+              >
+              Flux-core / FCAW
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="TIG or GTAW"
+              >
+              TIG / GTAW
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Oxy-fuel cutting"
+              >
+              Oxy-fuel cutting
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Plasma cutting"
+              >
+              Plasma cutting
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Grinding or drilling"
+              >
+              Grinding or drilling
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Preheating or controlled cooling"
+              >
+              Preheating or controlled cooling
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="process"
+                value="Specific filler metal"
+              >
+              Specific filler metal
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Documents or qualifications required</legend>
+
+          <div class="check-grid">
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="WPS or written procedure"
+              >
+              WPS or written procedure
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="Drawing or specified weld size"
+              >
+              Drawing or specified weld size
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="Welder certification"
+              >
+              Welder certification
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="Inspection or testing"
+              >
+              Inspection or testing
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="Proof of insurance"
+              >
+              Proof of insurance
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requirements"
+                value="None or unsure"
+              >
+              None or unsure
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Jobsite procedures or hazards</legend>
+
+          <div class="check-grid">
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Hot-work permit"
+              >
+              Hot-work permit
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Fire watch"
+              >
+              Fire watch
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Site orientation or check-in"
+              >
+              Site orientation or check-in
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Lockout or tagout"
+              >
+              Lockout or tagout
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Special PPE"
+              >
+              Special PPE
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Fall protection, ladder, lift, or scaffold"
+              >
+              Fall protection, ladder, lift, or scaffold
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Ventilation or fume control"
+              >
+              Ventilation or fume control
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Combustibles or flammables nearby"
+              >
+              Combustibles or flammables nearby
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="Public, traffic, or workers nearby"
+              >
+              Public, traffic, or workers nearby
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="siteRules"
+                value="None or unsure"
+              >
+              None or unsure
+            </label>
+          </div>
+        </fieldset>
+
+        <label>
+          Procedure, drawing, or site-rule notes
+
+          <textarea
+            name="procedureNotes"
+            rows="4"
+            placeholder="Describe any required procedures, jobsite rules, inspection requirements, or restrictions."
+          ></textarea>
+        </label>
+
+        <label class="upload-box" for="documents">
+          <span class="upload-icon">📄</span>
+          <b>Add drawings or documents</b>
+          <small>PDF files or images</small>
+
+          <input
+            id="documents"
+            name="documents"
+            type="file"
+            accept="application/pdf,image/*"
+            multiple
+          >
+        </label>
+      </section>
+
+      <!-- STEP 6: TIMING AND REVIEW -->
+      <section class="step" data-step="6" hidden>
+        <div class="section-heading">
+          <span class="step-number">6</span>
+
+          <div>
+            <h2>Timing and review</h2>
+
+            <p>
+              Tell us your preferred timing and review your request.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <label>
+            Preferred date
+
+            <input
+              type="date"
+              name="preferredDate"
+            >
+          </label>
+
+          <label>
+            How soon is the work needed?
+
+            <select name="urgency">
+              <option value="Flexible">Flexible</option>
+              <option value="Within one week">Within one week</option>
+              <option value="As soon as reasonably available">
+                As soon as reasonably available
+              </option>
+              <option value="Equipment-down or urgent">
+                Equipment-down or urgent
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Best appointment window
+
+          <select name="window">
+            <option value="Any time">Any time</option>
+            <option value="Morning">Morning</option>
+            <option value="Midday">Midday</option>
+            <option value="Afternoon">Afternoon</option>
+          </select>
+        </label>
+
+        <label>
+          Anything else we should know?
+
+          <textarea
+            name="finalNotes"
+            rows="4"
+          ></textarea>
+        </label>
+
+        <div id="summary" class="summary"></div>
+
+        <label class="consent">
+          <input
+            type="checkbox"
+            name="acknowledge"
+            value="Accepted"
+            required
+          >
+
+          <span>
+            I understand that this information is used for preliminary
+            estimating and scheduling. Worksite access, hazards, jobsite
+            procedures, process selection, repair suitability, final price,
+            and final duration must be verified before work begins.
+            <strong>*</strong>
+          </span>
+        </label>
+      </section>
+
+      <!-- FORM BUTTONS -->
+      <div class="actions">
+        <button
+          type="button"
+          id="backBtn"
+          class="secondary"
+          hidden
+        >
+          Back
+        </button>
+
+        <button
+          type="button"
+          id="saveBtn"
+          class="ghost"
+        >
+          Save draft
+        </button>
+
+        <button
+          type="button"
+          id="nextBtn"
+          class="primary"
+        >
+          Continue
+        </button>
+
+        <button
+          type="submit"
+          id="submitBtn"
+          class="primary"
+          hidden
+        >
+          Finish request
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- COMPLETION WINDOW -->
+  <dialog id="finishDialog">
+    <div class="success-icon">✓</div>
+
+    <h2>Request ready</h2>
+
+    <p>
+      Your answers have been saved on this device. Download the
+      request and send it with the selected photos and documents.
+    </p>
+
+    <div class="dialog-actions">
+      <button
+        type="button"
+        id="downloadBtn"
+        class="primary"
+      >
+        Download request
+      </button>
+
+      <button
+        type="button"
+        id="printBtn"
+        class="secondary"
+      >
+        Print or Save PDF
+      </button>
+
+      <button
+        type="button"
+        id="closeDialog"
+        class="ghost"
+      >
+        Close
+      </button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
